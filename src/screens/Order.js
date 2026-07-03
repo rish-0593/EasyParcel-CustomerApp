@@ -182,7 +182,7 @@ const Order = ({navigation}) => {
 	}
 
 	const onRegionChangePickUp = (e) => {
-		fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + e.latitude + ',' + e.longitude + '&key=AIzaSyDe7OwuKC5iSDFAaA9P2W_RH_lBhDS__5o')
+		fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + e.latitude + ',' + e.longitude + '&key=KEY')
         .then((response) => response.json())
         .then((responseJson) => {
             // console.log('ADDRESS1 !! => ' + responseJson.results[0].address_components);
@@ -230,7 +230,7 @@ const Order = ({navigation}) => {
 	}
 
 	const onRegionChangeDropUp = (e) => {
-		fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + e.latitude + ',' + e.longitude + '&key=AIzaSyDe7OwuKC5iSDFAaA9P2W_RH_lBhDS__5o')
+		fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + e.latitude + ',' + e.longitude + '&key=KEY')
         .then((response) => response.json())
         .then((responseJson) => {
 			if(responseJson.results[0]){
@@ -246,7 +246,7 @@ const Order = ({navigation}) => {
 
 	const computeDistance = (pickUplat, pickUplng, dropUpLat, dropUpLng) => {
 		if(pickUplat != dropUpLat && pickUplng != dropUpLng){
-			fetch('https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + pickUplat + ',' + pickUplng + '&destinations=side_of_road:' + dropUpLat + ',' + dropUpLng + '&key=AIzaSyDe7OwuKC5iSDFAaA9P2W_RH_lBhDS__5o')
+			fetch('https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + pickUplat + ',' + pickUplng + '&destinations=side_of_road:' + dropUpLat + ',' + dropUpLng + '&key=KEY')
 			.then((response) => response.json())
 			.then((responseJson) => {
 				if(responseJson.rows[0].elements[0].distance){
